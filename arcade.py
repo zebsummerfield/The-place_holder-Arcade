@@ -1,6 +1,7 @@
 from tkinter import *
 import Pong
 import Snake
+import Tetris
 
 
 class GameWindow(Frame):
@@ -19,12 +20,20 @@ class GameWindow(Frame):
         self.game2 = Button(self, text = 'Snake', command = Snake.main,
                             width = 10, bg = 'dark grey', relief = 'raised',
                             font = ('Helvetica', 30))
+        self.game3 = Button(self, text = 'Tetris', command = Tetris.main,
+                            width = 10, bg = 'dark grey', relief = 'raised',
+                            font = ('Helvetica', 30))
         self.title_box.pack()
         self.game1.pack()
         self.game2.pack()
+        self.game3.pack()
 
 
-master = Tk()
-master.title('ARCADE')
-master.geometry("500x500+100+100")
-game = GameWindow(master)
+def game():
+    master = Tk()
+    master.title('ARCADE')
+    master.geometry("500x500+100+100")
+    game = GameWindow(master)
+
+if __name__ == '__main__':
+    game()
