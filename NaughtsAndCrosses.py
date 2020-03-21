@@ -2,20 +2,6 @@ from tkinter import *
 import time
 
 
-#set up the GUI
-master = Tk()
-master.title("Naughts and Crosses")
-master.geometry("300x500+100+100")
-master.configure(bg = 'dark grey')
-master.option_add('*Button.Font', 'verdana 50 ')
-master.option_add('*Button.bg', 'light grey')
-master.option_add('*Button.fg', 'black')
-master.option_add('*Button.relief', 'ridge')
-turn = 1
-grid = [['','',''],['','',''],['','','']]
-pve = False
-cross_played = True
-
 
 
 def nothing():
@@ -267,43 +253,56 @@ def competitive():
     reset()
     turn += 1
 
-        
-
-#creates the buttons and text box and places them in the GUI
-position1 = Button(master, command = lambda: click(1,0,0,position1))
-position1.place(x=20, y = 100, width = 80, height = 80)
-position2 = Button(master, command = lambda: click(2,0,1,position2))
-position2.place(x=110, y = 100, width = 80, height = 80)
-position3 = Button(master, command = lambda: click(3,0,2,position3))
-position3.place(x=200, y = 100, width = 80, height = 80)
-position4 = Button(master, command = lambda: click(4,1,0,position4))
-position4.place(x=20, y = 190, width = 80, height = 80)
-position5 = Button(master, command = lambda: click(5,1,1,position5))
-position5.place(x=110, y = 190, width = 80, height = 80)
-position6 = Button(master, command = lambda: click(6,1,2,position6))
-position6.place(x=200, y = 190, width = 80, height = 80)
-position7 = Button(master, command = lambda: click(7,2,0,position7))
-position7.place(x=20, y = 280, width = 80, height = 80)
-position8 = Button(master, command = lambda: click(8,2,1,position8))
-position8.place(x=110, y = 280, width = 80, height = 80)
-position9 = Button(master, command = lambda: click(9,2,2,position9))
-position9.place(x=200, y = 280, width = 80, height = 80)
-
-PvP = Button(master, text = "PvP", font = ('verdana', 25),
-             command = competitive)
-PvP.place(x = 60, y = 380, width = 80, height = 50)
-PvE = Button(master, text = "PvE", font = ('verdana', 25),
-             command = loner)
-PvE.place(x = 160, y = 380, width = 80, height = 50)
-
-text_window = Label(font = ('verdana', 15), bg = 'light grey',
-                    relief = 'sunken')
-text_window.place(x = 50, y = 25, width = 200, height = 50)
-
 
 
 #only plays when launched from this window
-def main():  
+def main():
+    #set up the GUI
+    master = Tk()
+    master.title("Naughts and Crosses")
+    master.geometry("300x500+100+100")
+    master.configure(bg = 'dark grey')
+    master.option_add('*Button.Font', 'verdana 50 ')
+    master.option_add('*Button.bg', 'light grey')
+    master.option_add('*Button.fg', 'black')
+    master.option_add('*Button.relief', 'ridge')
+    turn = 1
+    grid = [['','',''],['','',''],['','','']]
+    pve = False
+    cross_played = True
+
+    
+    #creates the buttons and text box and places them in the GUI
+    position1 = Button(master, command = lambda: click(1,0,0,position1))
+    position1.place(x=20, y = 100, width = 80, height = 80)
+    position2 = Button(master, command = lambda: click(2,0,1,position2))
+    position2.place(x=110, y = 100, width = 80, height = 80)
+    position3 = Button(master, command = lambda: click(3,0,2,position3))
+    position3.place(x=200, y = 100, width = 80, height = 80)
+    position4 = Button(master, command = lambda: click(4,1,0,position4))
+    position4.place(x=20, y = 190, width = 80, height = 80)
+    position5 = Button(master, command = lambda: click(5,1,1,position5))
+    position5.place(x=110, y = 190, width = 80, height = 80)
+    position6 = Button(master, command = lambda: click(6,1,2,position6))
+    position6.place(x=200, y = 190, width = 80, height = 80)
+    position7 = Button(master, command = lambda: click(7,2,0,position7))
+    position7.place(x=20, y = 280, width = 80, height = 80)
+    position8 = Button(master, command = lambda: click(8,2,1,position8))
+    position8.place(x=110, y = 280, width = 80, height = 80)
+    position9 = Button(master, command = lambda: click(9,2,2,position9))
+    position9.place(x=200, y = 280, width = 80, height = 80)
+    
+    PvP = Button(master, text = "PvP", font = ('verdana', 25),
+                 command = competitive)
+    PvP.place(x = 60, y = 380, width = 80, height = 50)
+    PvE = Button(master, text = "PvE", font = ('verdana', 25),
+                 command = loner)
+    PvE.place(x = 160, y = 380, width = 80, height = 50)
+    
+    text_window = Label(font = ('verdana', 15), bg = 'light grey',
+                        relief = 'sunken')
+    text_window.place(x = 50, y = 25, width = 200, height = 50)
+    
     master.mainloop()
 
 if __name__ == '__main__':
