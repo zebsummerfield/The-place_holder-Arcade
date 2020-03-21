@@ -499,19 +499,23 @@ class GameWindow(Frame):
         #deletes all blocks in a row if there are 10 blocks in the row
         blocksy = []
         deleted_blocks = 0
-        deleted_block_y = 400
+        deleted_block_y = []
         for block in self.blocks:
             blocksy.append(block.y)
         blocks_to_clear = []
         for block in self.blocks:
             if blocksy.count(block.y) >= 10:
                 blocks_to_clear.append(block)
-                deleted_block_y = block.y
+                if block.y not in deleted_block_y:
+                    deleted_block_y.append(block.y)
                 deleted_blocks += 1
         #when blocks are deleted moves all blocks down
         for block in self.blocks:
-            if block.y < deleted_block_y:
-                block.y += (deleted_blocks / 10) * 20
+            change_y = 0
+            for y in deleted_block_y:
+                if block.y < y:
+                    change_y += 20
+            block.y += change_y
         for block in blocks_to_clear:
             self.blocks.remove(block)
 
@@ -613,6 +617,7 @@ class GameWindow(Frame):
     def E(self, event):
         if not self.swapped:
             self.hold,self.target = self.target,self.hold
+            self.target.configuration = 0
             self.hold.reset()
             self.swapped = True
             
