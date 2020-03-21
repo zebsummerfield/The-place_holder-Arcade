@@ -96,9 +96,9 @@ class Oval:
                 return True
 
         if self.rightX > rectangle.x \
-           and self.
+           and self.bottomY >= rectangle.y \
            and self.leftX < rectangle.x + 20 \
-           and self.
+           and self.topY <= rectangle.y + 5:
                 self.movey = -1 * abs(self.movey)
                 return True
 
