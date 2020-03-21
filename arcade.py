@@ -3,6 +3,7 @@ import Pong
 import Snake
 import Tetris
 import NaughtsAndCrosses
+import SpaceInvaders
 
 class GameWindow(Frame):
     def __init__(self, parent):
@@ -27,12 +28,16 @@ class GameWindow(Frame):
                             command = NaughtsAndCrosses.main, width = 16,
                             bg = 'dark grey', relief = 'raised',
                             font = ('Helvetica', 30))
+        self.game5 = Button(self, text = 'SpaceInvaders',
+                            command = SpaceInvaders.main, width = 16,
+                            bg = 'dark grey', relief = 'raised',
+                            font = ('Helvetica', 30))
         self.title_box.pack()
         self.game1.pack()
         self.game2.pack()
         self.game3.pack()
         self.game4.pack()
-
+        self.game5.pack()
 
 def game():
     master = Tk()
