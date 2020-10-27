@@ -1,4 +1,3 @@
-
 from tkinter import *
 import time
 import random
@@ -22,14 +21,11 @@ class Block:
 class Rectangle:
     def __init__(self, x, y, scorePosition, playernumb):
         self.x = x
-        
         self.y = y
         self.width = 50
         self.height = 10
         self.movex = 0
-        self.scorePosition = scorePosition
-        self.playernumb = playernumb
-
+        
     def draw(self, canvas):
 
         if self.x >= 450:
@@ -41,8 +37,6 @@ class Rectangle:
             self.x = 20
 
         self.x += self.movex
-        canvas.create_text(self.x -10, self.y, text=self.playernumb)
-        canvas.create_text(self.scorePosition, 227, text='Score ' + self.playernumb + ' = ' + str(self.score))
         
         canvas.create_rectangle(self.x,
                                 self.y,
@@ -99,6 +93,13 @@ class Oval:
            and self.topY > rectangle.y \
            and self.centreX < rectangle.x + rectangle.width:
                 self.movey = abs(self.movey)
+                return True
+
+        if self.rightX > rectangle.x \
+           and self.bottomY >= rectangle.y \
+           and self.leftX < rectangle.x + 20 \
+           and self.topY <= rectangle.y + 5:
+                self.movey = -1 * abs(self.movey)
                 return True
 
         return False
