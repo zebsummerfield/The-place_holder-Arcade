@@ -14,7 +14,7 @@ class GameWindow(Frame):
 
         self.title_box = Label(self, width = 50, font = ('Helvetica', 30),
                                bg = 'light grey', relief = 'sunken',
-                               text = 'The End Racism Arcade')
+                               text = 'The place_holder Arcade')
         self.game1 = Button(self, text = 'Pong', command = Pong.main,
                             width = 16, bg = 'dark grey', relief = 'raised',
                             font = ('Helvetica', 30))
