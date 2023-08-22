@@ -1,2 +1,2 @@
 # The-End-Racism-Arcade
-An Arcade of python games whose main goal is to end racism.
+An Arcade of python games built with tkinter including: Pong, Tetris, Snake and Naughts and Crosses.
